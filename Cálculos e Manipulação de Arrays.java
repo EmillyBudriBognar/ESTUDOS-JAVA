@@ -51,6 +51,7 @@ public class Atividade {
         System.out.println("\n=== PARTE 2: ARRAY DINÂMICO ===");
 
         int[] numeros = {5, 12, 7, 20, 3};
+        System.out.println("Array completo: " + Arrays.toString(numeros));
 
         //Soma
         int somaArray = 0; 
@@ -63,7 +64,6 @@ public class Atividade {
         int indice = 6; 
         int indiceCircular = indice % numeros.length; 
 
-        System.out.println("Array completo: " + Arrays.toString(numeros));
         System.out.println("Índice escolhido (circular): " + indice);
         System.out.println("Elemento acessado: " + numeros[indiceCircular]);
 
