@@ -1,15 +1,14 @@
 /*
 Programa de Cálculos Básicos:
 
-- Crie um programa que solicite ao usuário a entrada de dois números inteiros.
-- Mostre na tela o resultado da soma, subtração, multiplicação, divisão e módulo desses dois números.
-- Use os operadores aritméticos apropriados para cada cálculo.
+- Solicita ao usuário dois números inteiros.
+- Mostra soma, subtração, multiplicação, divisão e módulo.
 
 Manipulação de Array:
 
-- Crie um array de números inteiros com 5 posições e preencha-o com valores à sua escolha.
-- Percorrer e Somar (Acumulador): Percorra todos os elementos do array e some-os utilizando um operador de atribuição composta (+=). Exiba a soma total.
-- Percorrer Circularmente: Simule o percorrimento circular de um índice no array usando o operador de módulo (%). Mostre o elemento que seria acessado após algumas "voltas" no array (ex: se o array tem 5 posições, o índice 6 seria o mesmo que o índice 1).
+- Cria um array de 5 números inteiros preenchidos pelo usuário.
+- Soma todos os elementos do array.
+- Permite ao usuário escolher um índice e acessa o elemento circularmente usando %.
 */
 
 import java.util.Arrays;
@@ -20,49 +19,66 @@ public class Atividade {
         
         Scanner entrada = new Scanner(System.in);
 
-        //Parte1
+        // ==========================
+        // Parte 1: Cálculos Básicos
+        // ==========================
         System.out.println("=== PARTE 1: CÁLCULOS BÁSICOS ===");
 
-        System.out.println("Digite o primeiro numero inteiro: ");
+        System.out.print("Digite o primeiro número inteiro: ");
         int num1 = entrada.nextInt();
 
-        System.out.println("Digite o segundo numero inteiro: ");
+        System.out.print("Digite o segundo número inteiro: ");
         int num2 = entrada.nextInt();
 
         int soma = num1 + num2;
         int subtracao = num1 - num2;
         int multiplicacao = num1 * num2;
 
-        //Caso for 0
-        if(num2 != 0){
+        if (num2 != 0) {
             int divisao = num1 / num2;
             int modulo = num1 % num2;
-            System.out.println("Divisao: " + divisao);
-            System.out.println("Modulo: " + modulo);
+            System.out.println("Divisão: " + divisao);
+            System.out.println("Módulo: " + modulo);
         } else {
-            System.out.println("Divisao e modulo nao podem ser feitos (divisao por zero)");
+            System.out.println("Divisão e módulo não podem ser feitos (divisão por zero).");
         }
 
         System.out.println("Soma: " + soma);
-        System.out.println("Subtracao: " + subtracao);
-        System.out.println("Multiplicacao: " + multiplicacao);
+        System.out.println("Subtração: " + subtracao);
+        System.out.println("Multiplicação: " + multiplicacao);
 
-        // Parte2
+        // ==========================
+        // Parte 2: Manipulação de Array
+        // ==========================
         System.out.println("\n=== PARTE 2: ARRAY DINÂMICO ===");
 
-        int[] numeros = {5, 12, 7, 20, 3};
+        int tamanhoArray = 5;
+        int[] numeros = new int[tamanhoArray];
+
+        // Preenchendo o array com valores do usuário
+        for (int i = 0; i < tamanhoArray; i++) {
+            System.out.print("Digite o número para a posição " + i + ": ");
+            numeros[i] = entrada.nextInt();
+        }
+
         System.out.println("Array completo: " + Arrays.toString(numeros));
 
-        //Soma
+        // Soma do array
         int somaArray = 0; 
         for (int i = 0; i < numeros.length; i++) { 
             somaArray += numeros[i]; 
         }
         System.out.println("Soma total do array: " + somaArray);
 
-        //Circular
-        int indice = 6; 
-        int indiceCircular = indice % numeros.length; 
+        // Escolha de índice pelo usuário
+        System.out.print("Digite o índice que deseja acessar circularmente: ");
+        int indice = entrada.nextInt();
+
+        // Cálculo do índice circular
+        int indiceCircular = indice % numeros.length;
+        if (indiceCircular < 0) { // trata índice negativo
+            indiceCircular += numeros.length;
+        }
 
         System.out.println("Índice escolhido (circular): " + indice);
         System.out.println("Elemento acessado: " + numeros[indiceCircular]);
