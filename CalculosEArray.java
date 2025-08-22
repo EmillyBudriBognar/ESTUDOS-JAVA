@@ -14,7 +14,7 @@ Manipulação de Array:
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Atividade {
+public class CalculosEArray {
     public static void main(String[] args) {
         
         Scanner entrada = new Scanner(System.in);
